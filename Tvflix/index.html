@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- primary metatag -->
+        <title>Tvflix</title>
+        <meta name="title" content="Tvflix">
+        <meta name="description" content="Tvflix is a popular movie app">
+        <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <!-- js -->
+        <script>
+            const getMovieDetail=function(id){
+    window.localStorage.setItem("movieId",String(id))
+}
+const getMoviesDetailByGenreId=function(name){
+    window.localStorage.setItem("genre",String(name))
+}
+        </script>
+        <script src="./assets/js/global-1.js" type="module" defer></script>
+        <script src="./assets/js/index.js" type="module"></script>
+
+    </head>
+    <body>
+
+        <header class="header">
+            <a href="./index.html" class="logo">
+                <img src="./assets/images/logo.svg" width="140" height="32"
+                    alt="TvFlix">
+            </a>
+            <div class="search-box active" search-box>
+                <div class="search-wrapper searching" search-wrapper>
+                    <input type="text" name="search"
+                        placeholder="search movies..."
+                        class="search-field" aria-label="search movies"
+                        search-field autocomplete="off">
+                    <img src="./assets/images/search.png" alt="search"
+                        width="24" height="24" class="leading-icon">
+                </div>
+                <button class="search-btn" search-toggler>
+                    <img src="./assets/images/close.png" alt="close search box"
+                        width="24" height="24" class="trailing-icon">
+                </button>
+            </div>
+            <button class="search-btn" search-toggler menu-close>
+                <img src="./assets/images/search.png" width="24" height="24"
+                    alt="open search box">
+            </button>
+            <button class="menu-btn " menu-btn menu-toggler>
+                <img src="./assets/images/menu.png" width="24" height="24"
+                    alt="open menu" class="menu active">
+                <img src="./assets/images/menu-close.png" width="24" height="24"
+                    alt="close menu" class="close">
+            </button>
+        </header>
+        <nav class="sidebar ">
+            <!-- <div class="sidebar-inner">
+               ..................
+            </div> -->
+            <div class="sidebar-footer" style="padding-bottom: 18px;">
+                <p class="copyright">Copyright 2023</p>
+                <a href="https://" target
+                    class="duancuoikhoa">tranthanhdat4321</a>
+                <img src="./assets/images/tmdb-logo.svg" alt>
+            </div>
+        </nav>
+        <div class="overlay" overlay menu-toggler>
+
+        </div>
+        <article class="container" page-content>
+            <section class="banner" aria-label="popular movies">
+                <div class="dynamic-section">
+                    <!--   ................ -->
+                </div>
+
+            </section>
+            <!-- movie list -->
+
+        </article>
+    </body>
+</html>
