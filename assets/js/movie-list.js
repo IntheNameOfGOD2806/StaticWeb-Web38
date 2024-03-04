@@ -74,7 +74,7 @@ const createMovieList = (movieList, title) => {
             `
         )
     }).join("")
-   currentPage += 1
+    currentPage += 1
 }
 // homepage section data fetching
 fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${await genreId}&page= ${currentPage}`, ({ results }) => {
@@ -82,34 +82,34 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=f
 }, options)
 
 
-//scrooll
+//scrooll event
 let lastKnownScrollPosition = 0;
 let ticking = false;
 
- async function doSomething(scrollPos) {
-  // Do something with the scroll position
+async function doSomething(scrollPos) {
+    // Do something with the scroll position
       console.log("check scrollPos:", scrollPos)
       console.log("check body scroll height:", document.body.scrollHeight)
-  if(scrollPos>=document.body.scrollHeight-500){
-    console.log("check currentPage:", currentPage)
+    if (scrollPos >= document.body.scrollHeight-747) {
+        console.log("check currentPage:", currentPage)
 
-   const id= await genreId;
-    fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}&page= ${currentPage}`, ({ results }) => {
-   
-        createMovieList(results, `${genreName}`);
-    }, options)
-  }
+        const id = await genreId;
+        fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}&page= ${currentPage}`, ({ results }) => {
+
+            createMovieList(results, `${genreName}`);
+        }, options)
+    }
 }
 
 document.addEventListener("scroll", (event) => {
-  lastKnownScrollPosition = window.scrollY;
+    lastKnownScrollPosition = window.scrollY;
 
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      doSomething(lastKnownScrollPosition);
-      ticking = false;
-    });
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            doSomething(lastKnownScrollPosition);
+            ticking = false;
+        });
 
-    ticking = true;
-  }
+        ticking = true;
+    }
 });
