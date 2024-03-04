@@ -1,5 +1,6 @@
 import { sidebar } from './sidebar.js';
 import { imageBaseUrl } from './api.js';
+let currentPage = 1;
 const genreName = window.localStorage.getItem("genre");
 const options = {
     method: 'GET',
@@ -23,13 +24,13 @@ const genreList = []
 // }, options).then(() => {
 //     console.log(genreList)
 // })
-const genreId=fetch('https://api.themoviedb.org/3/genre/movie/list?language=en',options).then(res=>res.json()).then(data=>{
+var genreId = fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options).then(res => res.json()).then(data => {
     for (const { id, name } of data.genres) {
         genreList.push({ id, name })
     }
-}).then(()=>{
-    return (genreList.find((genre)=>genre.name==genreName).id) 
-  
+}).then(() => {
+    return (genreList.find((genre) => genre.name == genreName).id)
+
 })
 
 
@@ -39,9 +40,9 @@ sidebar()
 const createMovieList = (movieList, title) => {
     console.log(movieList)
     const movieListElement = document.querySelector(".movie-list.genre-list .grid-list");
-const SectionTitle=document.querySelector(".title-wrapper .heading");
-SectionTitle.textContent=title
-    movieListElement.innerHTML = movieList.map((movie) => {
+    const SectionTitle = document.querySelector(".title-wrapper .heading");
+    SectionTitle.textContent = title
+    movieListElement.innerHTML += movieList.map((movie) => {
         return (
             `
             <div class="movie-card">
@@ -73,9 +74,42 @@ SectionTitle.textContent=title
             `
         )
     }).join("")
-
+   currentPage += 1
 }
 // homepage section data fetching
-fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${await genreId}`, ({ results }) => {
+fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${await genreId}&page= ${currentPage}`, ({ results }) => {
     createMovieList(results, `${genreName}`);
 }, options)
+
+
+//scrooll
+let lastKnownScrollPosition = 0;
+let ticking = false;
+
+ async function doSomething(scrollPos) {
+  // Do something with the scroll position
+      console.log("check scrollPos:", scrollPos)
+      console.log("check body scroll height:", document.body.scrollHeight)
+  if(scrollPos>=document.body.scrollHeight-500){
+    console.log("check currentPage:", currentPage)
+
+   const id= await genreId;
+    fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}&page= ${currentPage}`, ({ results }) => {
+   
+        createMovieList(results, `${genreName}`);
+    }, options)
+  }
+}
+
+document.addEventListener("scroll", (event) => {
+  lastKnownScrollPosition = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      doSomething(lastKnownScrollPosition);
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+});
