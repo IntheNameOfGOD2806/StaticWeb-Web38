@@ -39,9 +39,11 @@ const options = {
 //get movie detail
 fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?append_to_response=casts,videos,images,releases`, (response) => {
 
-    const { title, overview, backdrop_path, popularity, runtime,
+    const { title,
+        overview, backdrop_path, popularity, runtime,
         poster_path, vote_average, release_date,
-        genres, releases: { countries: [{ certification }] },
+        genres,
+        releases: { countries: [{ certification }] },
         casts: { cast, crew },
         videos: { results: videos }
     } = response
@@ -110,8 +112,8 @@ style="background-image: url( ${imageBaseUrl}w1280${backdrop_path});"></div>
 fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations`, (response) => {
     const { results } = response
     const recList = document.querySelector(".movie-list .slider-list .slider-inner")
-    recList.innerHTML=results.map(movie=>{
-        return(
+    recList.innerHTML = results.map(movie => {
+        return (
             `
             <div class="movie-card">
             <figure class="poster-box card-banner">
