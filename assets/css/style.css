@@ -1,6 +1,4 @@
-
-
-  /* #CUSTOM PROPERTY */
+/* #CUSTOM PROPERTY */
 
 :root {
   --background: hsla(220, 17%, 7%, 1);
@@ -92,7 +90,7 @@ html {
 }
 
 body {
-  padding-block-start:73px ;
+  padding-block-start: 73px;
   background-color: var(--background);
   color: var(--on-background);
   font-size: var(--fs-body);
@@ -114,7 +112,7 @@ body {
 }
 
 
-  /* #REUSED STYLE */
+/* #REUSED STYLE */
 
 .search-wrapper::before, .load-more::before {
 
@@ -131,9 +129,10 @@ body {
   position: absolute;
   top: 14px;
   right: 12px;
-display: none;
- 
+  display: none;
+
 }
+
 .search-wrapper.searching::before {
   display: block;
 }
@@ -243,7 +242,7 @@ display: none;
 \*-----------------------------------*/
 .header {
   z-index: 1000;
- width: 100vw;
+  width: 100vw;
   position: fixed;
   top: 0px;
   height: 73px;
@@ -358,9 +357,11 @@ display: none;
   visibility: hidden;
   transition: var(--transition-long);
 }
+
 .sidebar-list {
   padding-block-start: 10px;
 }
+
 .sidebar.active {
   transform: translateX(340px);
   visibility: visible;
@@ -765,38 +766,71 @@ display: none;
   z-index: 4;
   display: none;
 }
-.search-modal.active{
+
+.search-modal.active {
   display: block;
 }
-.search-modal .label{
+
+.search-modal .label {
   color: var(--primary-variant);
   font-weight: var(--weight-bold);
   margin-block-end: 8px;
 }
 
 
-  /* #MEDIA QUERIES */
+/* #MEDIA QUERIES */
 @media (min-width: 575px) {
+
   /* home page */
-  .banner-content{
+  .banner-content {
     right: auto;
     max-width: 500px;
   }
-  .slider-control{
+
+  .slider-control {
     left: calc(100% - 800px);
   }
+
   /* detail page */
-  .detail-content{
+  .detail-content {
     max-width: 750px;
   }
 }
+
 @media (min-width: 768px) {
-  /* home page */
-  .slider-control{
-    left: calc(100% -600px);
+  :root {
+    /* --banner-overlay: 90deg, hsl(220, 17%, 7%) 0%, hasla(220, 17%, 7%, 0) 100%; */
+    /* font size */
+    /* --fs-heading: 5.4rem; */
   }
-  /* detail page */
-  .detail-content{
-    max-width: 900px;
+
+  /* home page */
+  .container {
+    padding-inline: 24px;
+  }
+
+  .slider-list {
+    margin-inline: -24px;
+
+  }
+
+  .search-btn {
+    display: none;
+  }
+
+  .search-box {
+    all: unset;
+    display: block;
+    width: 360px;
+  }
+
+  .banner {
+    /* height: 500px; */
+  }
+
+  .banner-content {
+    /* bottom: 50%;
+    transform: translateY(50%);
+    left: 50px; */
   }
 }
