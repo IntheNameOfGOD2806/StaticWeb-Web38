@@ -2,6 +2,7 @@ import { sidebar } from './sidebar.js';
 import { imageBaseUrl } from './api.js';
 let currentPage = 1;
 const genreName = window.localStorage.getItem("genre");
+import { searchresult } from './search.js';
 const options = {
     method: 'GET',
     headers: {

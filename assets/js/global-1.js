@@ -1,5 +1,6 @@
 'use strict'
 // 
+import { searchresult } from "./search.js";
 
 export function addEventOnElement(elements, eventType, callback){
     for(const element of elements){
@@ -19,4 +20,4 @@ export  const getMovieDetail=function(id){
     window.localStorage.setItem("movieId",String(id))
 }
 
-
+searchresult()
