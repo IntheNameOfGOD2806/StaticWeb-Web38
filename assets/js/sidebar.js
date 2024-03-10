@@ -82,7 +82,9 @@ document.addEventListener('click', (event) => {
 
   } else {
     if (sidebar.classList.contains("active"))  sidebar.classList.remove("active")
-  
+     sideBarBtn.querySelector(".menu").classList.toggle("active")
+     sideBarBtn.querySelector(".close").classList.toggle("active")
+
    
   }
 })
