@@ -85,7 +85,7 @@ const addSlider = () => {
     const sliderItems = document.querySelectorAll(' [slider-item]');
     // console.log("sliderItems:", sliderItems)
     const sliderControls = document.querySelectorAll('.poster-box');
-    console.log("sliderControls:", sliderControls)
+    // console.log("sliderControls:", sliderControls)
     let lastSliderItem = sliderItems[0];
     let lastSliderControl = sliderControls[0];
     lastSliderItem.classList.add("active");

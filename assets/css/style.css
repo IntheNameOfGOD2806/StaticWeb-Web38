@@ -780,9 +780,7 @@ body {
 
 /* #MEDIA QUERIES */
 @media (min-width: 575px) {
-.logo{
-  display: none;
-}
+
   /* home page */
   .banner-content {
     right: auto;
@@ -835,4 +833,11 @@ body {
     transform: translateY(50%);
     left: 50px; */
   }
+}
+
+@media(max-width: 575px) {
+  .logo {
+    display: none;
+  }
+
 }

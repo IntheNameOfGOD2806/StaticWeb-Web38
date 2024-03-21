@@ -51,7 +51,7 @@ export function sidebar() {
             sidebarInner.querySelectorAll(".sidebar-list")[0].appendChild(link)
         }
         const sidebar = document.querySelector(".sidebar");
-        sidebar.innerHTML = sidebarInner.innerHTML+sidebar.innerHTML;
+        sidebar.innerHTML = sidebarInner.innerHTML + sidebar.innerHTML;
         toggleSidebar(sidebar)
     }
     const toggleSidebar = (sidebar) => {
@@ -75,18 +75,18 @@ export function sidebar() {
 document.addEventListener('click', (event) => {
     const sidebar = document.querySelector(".sidebar");
     const sideBarBtn = document.querySelector("[menu-btn]");
-   
-  const withinBoundaries = event.composedPath().includes(sideBarBtn);
 
-  if (withinBoundaries) {
+    const withinBoundaries = event.composedPath().includes(sideBarBtn);
 
-  } else {
-    if (sidebar.classList.contains("active"))  sidebar.classList.remove("active")
-     sideBarBtn.querySelector(".menu").classList.toggle("active")
-     sideBarBtn.querySelector(".close").classList.toggle("active")
+    if (withinBoundaries) {
 
-   
-  }
+    } else {
+        if (sidebar.classList.contains("active")) sidebar.classList.remove("active")
+        sideBarBtn.querySelector(".menu").classList.toggle("active")
+        sideBarBtn.querySelector(".close").classList.toggle("active")
+
+
+    }
 })
 
 //   fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
