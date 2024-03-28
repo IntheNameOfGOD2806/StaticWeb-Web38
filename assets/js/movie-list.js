@@ -89,8 +89,8 @@ let ticking = false;
 
 async function doSomething(scrollPos) {
     // Do something with the scroll position
-      console.log("check scrollPos:", scrollPos)
-      console.log("check body scroll height:", document.body.scrollHeight)
+    //   console.log("check scrollPos:", scrollPos)
+    //   console.log("check body scroll height:", document.body.scrollHeight)
     if (scrollPos >= document.body.scrollHeight-800) {
         console.log("check currentPage:", currentPage)
 
@@ -111,6 +111,6 @@ document.addEventListener("scroll", (event) => {
             ticking = false;
         });
 
-        ticking = true;
+        // ticking = true;
     }
 });

@@ -97,9 +97,9 @@ body {
   line-height: 1.5;
 }
 
-:focus-visible {
+/* :focus-visible {
   outline-color: var(--primary-variant);
-}
+} */
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -318,12 +318,13 @@ body {
 }
 
 .search-field:hover {
-  /*  */
+
   box-shadow: 0 0 0 2px var(--on-surface-variant);
 }
 
 .search-field:focus {
-  box-shadow: 0 0 0 2px var(--on-surface);
+    /*  outline*/
+  box-shadow: 0 0 0 2px var(--rating-color);
   padding-inline-start: 16px;
 }
 
@@ -527,10 +528,11 @@ body {
 
 .banner-text {
   width: 857px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
+  display: flex;
+  flex-direction: column;
   -webkit-line-clamp: 5;
-  margin-block-end: 24px;
+  margin-bottom: 24px;
+  overflow: hidden;
 }
 
 .banner .btn {

@@ -81,8 +81,12 @@ document.addEventListener('click', (event) => {
     if (withinBoundaries) {
 
     } else {
+
+        
         if (sidebar.classList.contains("active")) sidebar.classList.remove("active")
-        if (sidebar.classList.contains("active") && sideBarBtn.classList.contains("active")) {
+
+
+        if ( sideBarBtn.querySelector(".close").classList.contains("active")) {
             sideBarBtn.querySelector(".menu").classList.toggle("active")
             sideBarBtn.querySelector(".close").classList.toggle("active")
         }
