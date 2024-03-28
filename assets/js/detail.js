@@ -143,7 +143,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendatio
         </div>
             `
         )
-    })
+    }).join("")
 }, options)
 
 
