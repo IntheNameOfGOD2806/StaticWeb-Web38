@@ -551,7 +551,7 @@ body {
   border-radius: var(--radius-16) 0 0 var(--radius-16);
   user-select: none;
   padding: 4px 0 4px 4px;
-  overflow-x: auto;
+  overflow:overlay ;
 }
 
 .slider-control::-webkit-scrollbar {
@@ -561,6 +561,7 @@ body {
 .control-inner {
   display: flex;
   gap: 12px;
+  overflow-x: overlay;
 
 }
 
