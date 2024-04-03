@@ -51,6 +51,7 @@ export function sidebar() {
             sidebarInner.querySelectorAll(".sidebar-list")[0].appendChild(link)
         }
         const sidebar = document.querySelector(".sidebar");
+        // sidebar.innerHTML :footer
         sidebar.innerHTML = sidebarInner.innerHTML + sidebar.innerHTML;
         toggleSidebar(sidebar)
     }
@@ -58,20 +59,26 @@ export function sidebar() {
         const sideBarBtn = document.querySelector("[menu-btn]");
         const sideBarTogglers = document.querySelectorAll("[menu-toggler]")
         const sideBarClose = document.querySelectorAll("[menu-close]")
-        const overlay = document.querySelector("[overlay]")
+      
         addEventOnElement(sideBarTogglers, "click", () => {
             document.querySelector(".menu-btn .menu").classList.toggle("active")
             document.querySelector(".menu-btn .close").classList.toggle("active")
 
             sidebar.classList.toggle("active")
             sideBarBtn.classList.remove("active")
-            overlay.classList.remove("active")
+            
 
 
         })
 
     }
 }
+
+
+
+
+
+// toggle sidebar click event boundaries
 document.addEventListener('click', (event) => {
     const sidebar = document.querySelector(".sidebar");
     const sideBarBtn = document.querySelector("[menu-btn]");
@@ -82,11 +89,11 @@ document.addEventListener('click', (event) => {
 
     } else {
 
-        
+
         if (sidebar.classList.contains("active")) sidebar.classList.remove("active")
 
 
-        if ( sideBarBtn.querySelector(".close").classList.contains("active")) {
+        if (sideBarBtn.querySelector(".close").classList.contains("active")) {
             sideBarBtn.querySelector(".menu").classList.toggle("active")
             sideBarBtn.querySelector(".close").classList.toggle("active")
         }
@@ -96,7 +103,3 @@ document.addEventListener('click', (event) => {
     }
 })
 
-//   fetch('https://api.themoviedb.org/3/genre/movie/list?language=en', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));

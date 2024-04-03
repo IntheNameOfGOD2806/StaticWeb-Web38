@@ -92,7 +92,7 @@ async function doSomething(scrollPos) {
     //   console.log("check scrollPos:", scrollPos)
     //   console.log("check body scroll height:", document.body.scrollHeight)
     if (scrollPos >= document.body.scrollHeight-800) {
-        console.log("check currentPage:", currentPage)
+        // console.log("check currentPage:", currentPage)
 
         const id = await genreId;
         fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${id}&page= ${currentPage}`, ({ results }) => {
@@ -108,7 +108,7 @@ document.addEventListener("scroll", (event) => {
     if (!ticking) {
         window.requestAnimationFrame(() => {
             doSomething(lastKnownScrollPosition);
-            ticking = false;
+          
         });
 
         // ticking = true;
